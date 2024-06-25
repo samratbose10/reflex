@@ -11,9 +11,25 @@
         <h1>Reflex Checker Game</h1>
         <button id="startButton">Start Game</button>
         <div id="gameArea" class="hidden">
-            <div id="target"></div>
+            <div id="lights">
+                <div class="light" id="light1"></div>
+                <div class="light" id="light2"></div>
+                <div class="light" id="light3"></div>
+                <div class="light" id="light4"></div>
+                <div class="light" id="light5"></div>
+            </div>
         </div>
         <p id="message"></p>
+        <p id="score">High Score: N/A</p>
+        <p id="averageTime">Average Reaction Time: N/A</p>
+        <div id="leaderboard">
+            <h2>Top 5 Reaction Times</h2>
+            <ol id="leaderboardList">
+                <!-- Leaderboard entries will go here -->
+            </ol>
+        </div>
+        <audio id="appearSound" src="appear.mp3"></audio>
+        <audio id="clickSound" src="click.mp3"></audio>
     </div>
     <script src="script.js"></script>
 </body>

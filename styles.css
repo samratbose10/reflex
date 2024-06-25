@@ -16,20 +16,25 @@ body {
     position: relative;
     width: 300px;
     height: 300px;
-    border: 2px solid #333;
     margin: 20px auto;
 }
 
-#target {
+#lights {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.light {
     width: 50px;
     height: 50px;
+    background-color: gray;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+.light.on {
     background-color: red;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: none;
-    cursor: pointer;
 }
 
 .hidden {
@@ -38,4 +43,22 @@ body {
 
 #message, #score, #averageTime {
     font-size: 1.2em;
+}
+
+#leaderboard {
+    margin-top: 20px;
+}
+
+#leaderboard h2 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+#leaderboard ol {
+    padding-left: 0;
+    list-style-type: none;
+}
+
+#leaderboard li {
+    font-size: 1.1em;
 }
