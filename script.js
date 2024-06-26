@@ -22,11 +22,18 @@ function startSequence() {
     document.getElementById('startButton').disabled = true;
     waitingForLightsOut = false;
 
-    const delays = [1000, 2000, 3000, 4000, 5000];
-    delays.forEach((delay, index) => {
+    const delays = [1000, 2000, 3000, 4000];
+    const lights = [
+        'light1-3', 'light1-4',
+        'light2-3', 'light2-4',
+        'light3-3', 'light3-4',
+        'light4-3', 'light4-4'
+    ];
+
+    lights.forEach((light, index) => {
         setTimeout(() => {
-            document.getElementById(`light${index + 1}`).style.backgroundColor = 'red';
-            if (index === 4) {
+            document.getElementById(light).style.backgroundColor = 'red';
+            if (index === lights.length - 1) {
                 setTimeout(() => {
                     resetLights();
                     waitingForLightsOut = true;
@@ -34,14 +41,14 @@ function startSequence() {
                     startTimer();
                 }, 1000); // Give a short delay before resetting lights to grey and starting the timer
             }
-        }, delay);
+        }, delays[Math.floor(index / 2)]);
     });
 }
 
 function resetLights() {
-    for (let i = 1; i <= 5; i++) {
-        document.getElementById(`light${i}`).style.backgroundColor = 'gray';
-    }
+    document.querySelectorAll('.light').forEach(light => {
+        light.style.backgroundColor = 'black';
+    });
 }
 
 function startTimer() {

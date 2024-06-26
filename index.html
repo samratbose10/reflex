@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>F1 Reaction Time Checker</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Formula1+Display&display=swap" rel="stylesheet">
 </head>
 <body>
     <video autoplay muted loop id="backgroundVideo">
@@ -13,14 +15,33 @@
     </video>
 
     <div class="overlay">
-        <div class="lights-container">
-            <div class="light" id="light1"></div>
-            <div class="light" id="light2"></div>
-            <div class="light" id="light3"></div>
-            <div class="light" id="light4"></div>
-            <div class="light" id="light5"></div>
+        <div class="lights-grid">
+            <div class="column">
+                <div class="light" id="light1-1"></div>
+                <div class="light" id="light1-2"></div>
+                <div class="light" id="light1-3"></div>
+                <div class="light" id="light1-4"></div>
+            </div>
+            <div class="column">
+                <div class="light" id="light2-1"></div>
+                <div class="light" id="light2-2"></div>
+                <div class="light" id="light2-3"></div>
+                <div class="light" id="light2-4"></div>
+            </div>
+            <div class="column">
+                <div class="light" id="light3-1"></div>
+                <div class="light" id="light3-2"></div>
+                <div class="light" id="light3-3"></div>
+                <div class="light" id="light3-4"></div>
+            </div>
+            <div class="column">
+                <div class="light" id="light4-1"></div>
+                <div class="light" id="light4-2"></div>
+                <div class="light" id="light4-3"></div>
+                <div class="light" id="light4-4"></div>
+            </div>
         </div>
-        <p>Press spacebar when you're ready to race. Press spacebar again when the lights go out.</p>
+        <p class="instructions">Press spacebar when you're ready to race. Press spacebar again when the lights go out.</p>
         <div id="timer">00.000</div>
         <div id="result"></div>
         <button id="startButton">Start</button>
