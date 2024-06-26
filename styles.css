@@ -1,64 +1,44 @@
 body {
-    font-family: Arial, sans-serif;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
-}
-
-.container {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     text-align: center;
 }
 
-#gameArea {
-    position: relative;
-    width: 300px;
-    height: 300px;
-    margin: 20px auto;
-}
-
-#lights {
+.lights-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     margin-bottom: 20px;
 }
 
 .light {
-    width: 50px;
-    height: 50px;
-    background-color: gray;
+    width: 60px;
+    height: 60px;
+    margin: 5px;
     border-radius: 50%;
-    margin: 0 5px;
+    background-color: black;
+    border: 2px solid #333;
 }
 
-.light.on {
-    background-color: red;
-}
-
-.hidden {
-    display: none;
-}
-
-#message, #score, #averageTime {
-    font-size: 1.2em;
-}
-
-#leaderboard {
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
     margin-top: 20px;
 }
 
-#leaderboard h2 {
-    margin: 0;
-    font-size: 1.2em;
+#timer {
+    font-size: 48px;
+    margin-top: 20px;
+    font-weight: bold;
 }
 
-#leaderboard ol {
-    padding-left: 0;
-    list-style-type: none;
-}
-
-#leaderboard li {
-    font-size: 1.1em;
+#result {
+    margin-top: 20px;
+    font-size: 20px;
 }

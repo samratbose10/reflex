@@ -3,34 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reflex Checker Game</title>
-    <link rel="stylesheet" href="style.css">
+    <title>F1 Reaction Time Checker</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Reflex Checker Game</h1>
-        <button id="startButton">Start Game</button>
-        <div id="gameArea" class="hidden">
-            <div id="lights">
-                <div class="light" id="light1"></div>
-                <div class="light" id="light2"></div>
-                <div class="light" id="light3"></div>
-                <div class="light" id="light4"></div>
-                <div class="light" id="light5"></div>
-            </div>
-        </div>
-        <p id="message"></p>
-        <p id="score">High Score: N/A</p>
-        <p id="averageTime">Average Reaction Time: N/A</p>
-        <div id="leaderboard">
-            <h2>Top 5 Reaction Times</h2>
-            <ol id="leaderboardList">
-                <!-- Leaderboard entries will go here -->
-            </ol>
-        </div>
-        <audio id="appearSound" src="appear.mp3"></audio>
-        <audio id="clickSound" src="click.mp3"></audio>
+    <div class="lights-container">
+        <div class="light" id="light1"></div>
+        <div class="light" id="light2"></div>
+        <div class="light" id="light3"></div>
+        <div class="light" id="light4"></div>
+        <div class="light" id="light5"></div>
     </div>
+    <p>Tap/Click when you're ready to race. Then tap again when the lights go out.</p>
+    <div id="timer">00.000</div>
+    <div id="result"></div>
+    <button id="startButton">Start</button>
+
     <script src="script.js"></script>
 </body>
 </html>
