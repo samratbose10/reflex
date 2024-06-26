@@ -1,13 +1,17 @@
 let startTime, endTime;
 let timerInterval;
 let waitingForLightsOut = false;
+let reactionTime = 0; // Store the reaction time
 const backgroundMusic = document.getElementById('backgroundMusic');
 const popup = document.getElementById('popup');
 const readyButton = document.getElementById('readyButton');
+const reactionImage = document.getElementById('reactionImage');
+const timerDisplay = document.getElementById('timer');
 
 document.getElementById('startButton').addEventListener('click', showPopup);
 readyButton.addEventListener('click', startSequence);
 document.addEventListener('keydown', handleKeyPress);
+timerDisplay.addEventListener('click', () => displayReactionImage(reactionTime)); // Add click event listener
 
 function showPopup() {
     popup.style.display = 'flex';
@@ -18,9 +22,10 @@ function startSequence() {
     backgroundMusic.play();
     resetLights();
     document.getElementById('result').innerText = '';
-    document.getElementById('timer').innerText = '00.000';
+    timerDisplay.innerText = '00.000';
     document.getElementById('startButton').disabled = true;
-    waitingForLightsOut = false;
+    reactionImage.style.right = '-150px'; // Reset the image position
+    reactionImage.classList.remove('show'); // Ensure the image is hidden initially
 
     const delays = [1000, 2000, 3000, 4000];
     const lights = [
@@ -37,7 +42,7 @@ function startSequence() {
                 setTimeout(() => {
                     resetLights();
                     waitingForLightsOut = true;
-                    startTime = new Date().getTime();
+                    startTime = performance.now(); // Use high-resolution time
                     startTimer();
                 }, 1000); // Give a short delay before resetting lights to grey and starting the timer
             }
@@ -53,17 +58,17 @@ function resetLights() {
 
 function startTimer() {
     timerInterval = setInterval(() => {
-        const currentTime = new Date().getTime();
+        const currentTime = performance.now(); // Use high-resolution time
         const elapsedTime = (currentTime - startTime) / 1000;
-        document.getElementById('timer').innerText = elapsedTime.toFixed(3);
+        timerDisplay.innerText = elapsedTime.toFixed(3);
     }, 10);
 }
 
 function handleKeyPress(event) {
     if (event.code === 'Space') {
         if (waitingForLightsOut) {
-            endTime = new Date().getTime();
-            const reactionTime = (endTime - startTime) / 1000;
+            endTime = performance.now(); // Use high-resolution time
+            reactionTime = (endTime - startTime) / 1000;
             clearInterval(timerInterval);
             document.getElementById('result').innerText = `Your reaction time is ${reactionTime.toFixed(3)} seconds`;
             document.getElementById('startButton').disabled = false;
@@ -72,4 +77,23 @@ function handleKeyPress(event) {
             showPopup();
         }
     }
+}
+
+function displayReactionImage(time) {
+    console.log(`Reaction time: ${time}`); // Debugging statement
+    if (time < 0.2) {
+        reactionImage.src = 'image1.jpg';
+        console.log('Displaying image1.jpg'); // Debugging statement
+    } else if (time >= 0.2 && time < 0.25) {
+        reactionImage.src = 'image2.jpg';
+        console.log('Displaying image2.jpg'); // Debugging statement
+    } else if (time >= 0.25 && time < 3) {
+        reactionImage.src = 'image3.jpg';
+        console.log('Displaying image3.jpg'); // Debugging statement
+    } else {
+        reactionImage.src = '';
+        console.log('No image to display'); // Debugging statement
+        return;
+    }
+    reactionImage.classList.add('show'); // Trigger the CSS transition
 }

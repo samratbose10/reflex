@@ -77,6 +77,7 @@ button:hover {
     margin-top: 20px;
     font-weight: bold;
     color: #d71920; /* Formula 1 red */
+    cursor: pointer; /* Make it clickable */
 }
 
 #result {
@@ -110,4 +111,13 @@ button:hover {
     border-radius: 5px;
     text-align: center;
     color: black;
+}
+
+.reaction-image {
+    position: absolute;
+    top: 50%;
+    right: -150px; /* Start off-screen */
+    transform: translateY(-50%);
+    transition: right 1s ease; /* Smooth animation */
+    max-width: 150px;
 }
