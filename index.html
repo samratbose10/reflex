@@ -7,17 +7,33 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="lights-container">
-        <div class="light" id="light1"></div>
-        <div class="light" id="light2"></div>
-        <div class="light" id="light3"></div>
-        <div class="light" id="light4"></div>
-        <div class="light" id="light5"></div>
+    <video autoplay muted loop id="backgroundVideo">
+        <source src="back.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+
+    <div class="overlay">
+        <div class="lights-container">
+            <div class="light" id="light1"></div>
+            <div class="light" id="light2"></div>
+            <div class="light" id="light3"></div>
+            <div class="light" id="light4"></div>
+            <div class="light" id="light5"></div>
+        </div>
+        <p>Press spacebar when you're ready to race. Press spacebar again when the lights go out.</p>
+        <div id="timer">00.000</div>
+        <div id="result"></div>
+        <button id="startButton">Start</button>
     </div>
-    <p>Tap/Click when you're ready to race. Then tap again when the lights go out.</p>
-    <div id="timer">00.000</div>
-    <div id="result"></div>
-    <button id="startButton">Start</button>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <p>Are you ready?</p>
+            <button id="readyButton">I'm born ready</button>
+        </div>
+    </div>
+
+    <audio id="backgroundMusic" src="audio.mp3" loop></audio>
 
     <script src="script.js"></script>
 </body>
