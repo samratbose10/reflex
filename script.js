@@ -81,19 +81,20 @@ function handleKeyPress(event) {
 
 function displayReactionImage(time) {
     console.log(`Reaction time: ${time}`); // Debugging statement
-    if (time < 0.2) {
-        reactionImage.src = 'image1.jpg';
-        console.log('Displaying image1.jpg'); // Debugging statement
-    } else if (time >= 0.2 && time < 0.25) {
-        reactionImage.src = 'image2.jpg';
-        console.log('Displaying image2.jpg'); // Debugging statement
-    } else if (time >= 0.25 && time < 3) {
-        reactionImage.src = 'image3.jpg';
-        console.log('Displaying image3.jpg'); // Debugging statement
+    if (time >= 0.2 && time < 0.251) {
+        reactionImage.src = 'images/image1.png';
+        console.log('Displaying image1.png'); // Debugging statement
+    } else if (time >= 0.251 && time < 0.301) {
+        reactionImage.src = 'images/image2.png';
+        console.log('Displaying image2.png'); // Debugging statement
+    } else if (time >= 0.301 && time < 0.351) {
+        reactionImage.src = 'images/image3.png';
+        console.log('Displaying image3.png'); // Debugging statement
     } else {
         reactionImage.src = '';
         console.log('No image to display'); // Debugging statement
         return;
     }
     reactionImage.classList.add('show'); // Trigger the CSS transition
+    console.log('Added show class'); // Debugging statement
 }

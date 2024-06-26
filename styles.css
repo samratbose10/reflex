@@ -118,6 +118,23 @@ button:hover {
     top: 50%;
     right: -150px; /* Start off-screen */
     transform: translateY(-50%);
-    transition: right 1s ease; /* Smooth animation */
+    transition: right 1s ease, opacity 1s ease; /* Smooth animation */
     max-width: 150px;
+    opacity: 0; /* Initially hidden */
+}
+
+.reaction-image.show {
+    right: 10px; /* Move into view */
+    opacity: 1; /* Make visible */
+}
+
+.bottom-right-text {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    font-size: 14px;
+    color: white;
+    background: rgba(0, 0, 0, 0.7); /* Add a semi-transparent black background */
+    padding: 5px 10px;
+    border-radius: 5px;
 }
