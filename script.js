@@ -27,12 +27,13 @@ function startSequence() {
     reactionImage.style.right = '-150px'; // Reset the image position
     reactionImage.classList.remove('show'); // Ensure the image is hidden initially
 
-    const delays = [1000, 2000, 3000, 4000];
+    const delays = [1000, 2000, 3000, 4000, 5000];
     const lights = [
         'light1-3', 'light1-4',
         'light2-3', 'light2-4',
         'light3-3', 'light3-4',
-        'light4-3', 'light4-4'
+        'light4-3', 'light4-4',
+        'light5-3', 'light5-4'
     ];
 
     lights.forEach((light, index) => {
@@ -81,13 +82,13 @@ function handleKeyPress(event) {
 
 function displayReactionImage(time) {
     console.log(`Reaction time: ${time}`); // Debugging statement
-    if (time >= 0.2 && time < 0.251) {
+    if (time < 0.2) {
         reactionImage.src = 'images/image1.png';
         console.log('Displaying image1.png'); // Debugging statement
-    } else if (time >= 0.251 && time < 0.301) {
+    } else if (time >= 0.2 && time < 0.25) {
         reactionImage.src = 'images/image2.png';
         console.log('Displaying image2.png'); // Debugging statement
-    } else if (time >= 0.301 && time < 0.351) {
+    } else if (time >= 0.25 && time < 3) {
         reactionImage.src = 'images/image3.png';
         console.log('Displaying image3.png'); // Debugging statement
     } else {
